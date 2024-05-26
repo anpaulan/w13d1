@@ -1,0 +1,33 @@
+Classification Report: report that checks for true positives/negatives and false positives/negatives. 
+
+- Precision: accuracy of positive predictions. This means how accurate was the model at labeling an instance positive as a positive. 
+    Precision = TP/(TP+FP)
+
+- Recall: percent of positive cases tghat were caught.
+    Recall = TP/(TP+FN)
+
+- F1 Score: how many positive predictions were right. Based on the means of precision and recall. On a 0-1 scale, where 1 is the best and 0 is the worst. 
+    F1 Score = 2*(Recall * Precision) / (Recall + Precision)
+
+- Support: number of actual occurances of the class in the dataset. Unsupported training data could lead weak scores. 
+
+Analysis:
+
+Classifcation Report: Grouped by attrition and the model predicts if an employee stayed 
+    - The model is better in cases where the employee stayed (no attrition)
+    - Class 0 (No attrition, employees that stayed)
+
+Coefficients: 
+    - Based on the features, there are no features that have a high correlation to with attrition. This means that there is not a single feature that heavily influences whether an employee stays, and is more nuanced. 
+    - Years Since Last promotion & Years in Current Role have the most influence on attrition based on Coefficients: 
+        - Years since last promotion has a positive correlation: as employees are not promoted, they are less likely to stay
+        - Years in current role have an negative correlation: greater the tenwure, the more likely an employee is to stay
+
+Model Improvement Recommendations: 
+- Create new features that either track completely new data, or utilize the current data to create new features 
+    - Example of using current data would be to compare percent of salary increase to number of years in the role. 
+- Utilize or integrate other models:
+    - Current model is based on logistic regression, and may be able to use decision tress and random forests in conjection to logistical regression.
+- Reset/Reorganize test data
+- Collect more data points, more specifically on employees that have left: can also be a good thing as it indicates the retention rate is high
+- Reallocate weights on the regression to better reflect outcomes
